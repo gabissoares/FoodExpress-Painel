@@ -28,14 +28,14 @@ async function handleCadastro() {
 
   if (nome.trim() === '' || preco.trim() === '' || descricao.trim() === '') {
     console.log("2. Campos vazios detectados");
-    Alert.alert('Erro', 'Preencha todos os campos.');
+  window.alert('Erro: Preencha todos os campos.');
     return;
   }
   const precoNumerico = Number(preco);
   console.log("3. Preço numérico:", precoNumerico);
   if (precoNumerico <= 0 || isNaN(precoNumerico)) {
     console.log("4. Preço inválido");
-    Alert.alert('Erro', 'Preço inválido! Digite um número maior que zero.');
+  window.alert('Erro: Preço inválido! Digite um número maior que zero.');
     return;
   }
   try {
@@ -47,13 +47,13 @@ async function handleCadastro() {
       descricao: descricao.trim(),
     });
     console.log("6. Produto salvo com sucesso!");
-    Alert.alert('Sucesso', 'Produto cadastrado!');
+  window.alert('Sucesso: Produto cadastrado!');
     setNome('');
     setPreco('');
     setDescricao('');
   } catch (error) {
     console.error("7. Erro ao salvar:", error);
-    Alert.alert('Erro', 'Não foi possível salvar o produto.');
+  window.alert('Erro: Não foi possível salvar o produto.');
   }
 }
 
