@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "FoodExpress-Painel",
+    "slug": "foodexpress-painel",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}
