@@ -1,58 +1,142 @@
-# 🍕 FoodExpress - Painel do Restaurante
+# 🍕 FoodExpress — Painel do Restaurante
 
-Aplicativo mobile (React Native + Expo) para gerenciamento de cardápio em tempo real, integrado ao Cloud Firestore. Desenvolvido como estudo de caso para uma avaliação formadora.
+Aplicativo mobile desenvolvido com **React Native + Expo** para gerenciamento de cardápio em tempo real, utilizando o **Cloud Firestore** como banco de dados.  
+O projeto foi criado como estudo de caso para uma avaliação formadora, com foco em operações CRUD, validações e integração com Firebase.
 
-## ✨ Funcionalidades (CRUD + Tickets)
+---
 
-- ✅ **Cadastrar** novo produto (nome, preço, categoria e descrição)
-- ✅ **Listar** todos os produtos do cardápio
-- ✅ **Atualizar** preço de um produto com validação (não aceita valores ≤ 0)
-- ✅ **Remover** produto permanentemente
+## 📱 Preview do Projeto
 
-### Tickets do desafio
+Sistema simples e intuitivo para restaurantes gerenciarem produtos do cardápio em tempo real.
+
+### Funcionalidades principais:
+- ➕ Cadastro de produtos
+- 📋 Listagem automática em tempo real
+- ✏️ Atualização de preços
+- 🗑️ Remoção permanente de itens
+- 🧩 Organização por categorias
+
+---
+
+# ✨ Funcionalidades
+
+## ✅ CRUD Completo
+
+- ➕ **Cadastrar** novo produto
+- 📋 **Listar** produtos em tempo real
+- ✏️ **Atualizar** preço dos produtos
+- 🗑️ **Remover** produtos permanentemente
+
+---
+
+## 📌 Campos do Produto
+
+Cada produto possui:
+
+- Nome
+- Preço
+- Categoria
+- Descrição
+
+---
+
+# 🎟️ Tickets do Desafio
 
 | Ticket | Descrição | Status |
 |--------|-----------|--------|
-| 1 | Adicionar campo **Categoria** (Pizzas, Bebidas, Lanches) | ✅ |
-| 2 | Adicionar campo **Descrição** com `multiline` | ✅ |
-| 3 | Validar preço na edição (não permitir ≤ 0 ou valores não numéricos) | ✅ |
+| 1 | Adicionar campo **Categoria** (Pizzas, Bebidas, Lanches) | ✅ Concluído |
+| 2 | Adicionar campo **Descrição** utilizando `multiline` | ✅ Concluído |
+| 3 | Validar preço na edição (não permitir ≤ 0 ou valores inválidos) | ✅ Concluído |
 
-## 🛠️ Tecnologias utilizadas
+---
 
-- [React Native](https://reactnative.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [Expo](https://expo.dev/) (SDK 52)
-- [Firebase Firestore](https://firebase.google.com/docs/firestore) (banco de dados NoSQL em tempo real)
-- [React Native Picker](https://github.com/react-native-picker/picker) (seletor de categorias)
+# 🛠️ Tecnologias Utilizadas
 
-## 🚀 Como executar o projeto
+- ⚛️ React Native
+- 📘 TypeScript
+- 🚀 Expo SDK 52
+- 🔥 Firebase Firestore
+- 🧩 React Native Picker
 
-### Pré-requisitos
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+FoodExpress/
+├── src/
+│   ├── screens/
+│   │   ├── CadastroScreen.tsx
+│   │   └── ListagemScreen.tsx
+│   └── services/
+│       └── firebaseConfig.ts
+├── App.tsx
+├── app.json
+├── index.js
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+# 🚀 Como Executar o Projeto
+
+## 📋 Pré-requisitos
+
+Antes de começar, você precisará ter instalado:
 
 - Node.js (v18 ou superior)
 - npm ou yarn
-- Conta no [Firebase](https://firebase.google.com/) (para obter as credenciais)
+- Expo CLI
+- Conta no Firebase
 
-### Passos
+---
 
-1. Clone o repositório
-   ```bash
-   git clone https://github.com/gabissoares/FoodExpress-Painel.git
-   cd FoodExpress-Painel/FoodExpress
-Instale as dependências
+# 🔧 Instalação
 
-bash
+## 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/gabissoares/FoodExpress-Painel.git
+```
+
+## 2️⃣ Acesse a pasta do projeto
+
+```bash
+cd FoodExpress-Painel/FoodExpress
+```
+
+## 3️⃣ Instale as dependências
+
+```bash
 npm install
-Configure o Firebase
+```
 
-Crie um projeto no Console do Firebase
+---
 
-Ative o Cloud Firestore no modo de teste
+# 🔥 Configuração do Firebase
 
-Copie as credenciais do seu aplicativo web
+## 1️⃣ Crie um projeto no Firebase
 
-Crie o arquivo src/services/firebaseConfig.ts com o conteúdo:
+Acesse o console do Firebase e crie um novo projeto.
 
-ts
+## 2️⃣ Ative o Cloud Firestore
+
+Configure o Firestore no modo de teste.
+
+## 3️⃣ Obtenha as credenciais
+
+Copie as credenciais do aplicativo Web no painel do Firebase.
+
+## 4️⃣ Crie o arquivo:
+
+```text
+src/services/firebaseConfig.ts
+```
+
+## 5️⃣ Adicione a configuração:
+
+```ts
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
@@ -66,40 +150,74 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(app);
-Execute o projeto
+```
 
-bash
+---
+
+# ▶️ Executando o Aplicativo
+
+## 🌐 Rodar no navegador
+
+```bash
 npx expo start --web
-O aplicativo abrirá no navegador em http://localhost:8081.
+```
 
-Nota: Para testar no celular, utilize npx expo start --tunnel e escaneie o QR code com o aplicativo Expo Go. Em alguns ambientes (como Codespaces), o túnel pode apresentar instabilidade; neste caso, a versão web é totalmente funcional.
+O aplicativo abrirá em:
 
-📹 Evidências de funcionamento
-As seguintes operações foram testadas e registradas em vídeo:
+```text
+http://localhost:8081
+```
 
-Cadastro de produto com categoria e descrição
+---
 
-Listagem em tempo real
+## 📱 Rodar no celular
 
-Edição de preço com validação (valor inválido bloqueado, valor válido aceito)
+```bash
+npx expo start --tunnel
+```
 
-Remoção de produto
+Depois:
 
-📁 Estrutura de pastas
-text
-FoodExpress/
-├── src/
-│   ├── screens/
-│   │   ├── CadastroScreen.tsx
-│   │   └── ListagemScreen.tsx
-│   └── services/
-│       └── firebaseConfig.ts
-├── App.tsx
-├── app.json
-├── index.js
-├── package.json
-└── tsconfig.json
+- Abra o aplicativo **Expo Go**
+- Escaneie o QR Code exibido no terminal
 
-👩‍💻 Autora
-Desenvolvido por gabissoares para a avaliação formadora do curso.
+> ⚠️ Em alguns ambientes, como Codespaces, o túnel pode apresentar instabilidade.  
+> Nesse caso, utilize a versão web normalmente.
+
+---
+
+# 📹 Evidências de Funcionamento
+
+As seguintes funcionalidades foram testadas e registradas em vídeo:
+
+- ✅ Cadastro de produto
+- ✅ Seleção de categoria
+- ✅ Campo de descrição multilinha
+- ✅ Listagem em tempo real
+- ✅ Edição de preço com validação
+- ✅ Bloqueio de valores inválidos
+- ✅ Remoção permanente de produtos
+
+---
+
+# 💡 Aprendizados do Projeto
+
+Durante o desenvolvimento deste projeto, foram praticados conceitos como:
+
+- CRUD com Firestore
+- Integração React Native + Firebase
+- Gerenciamento de estado
+- Componentização
+- Validação de formulários
+- Atualização em tempo real
+- Estruturação de projeto mobile
+
+---
+
+# 👩‍💻 Autora
+
+Desenvolvido por **Gabriele Soares** para a avaliação formadora do curso.
+
+🔗 GitHub: https://github.com/gabissoares
